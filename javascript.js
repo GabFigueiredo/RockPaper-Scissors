@@ -7,15 +7,15 @@ function playRound() {
     for (let i = 1; i <= 5; i++) {
         user_choice = getUserChoice();
         computer_choice = getComputerChoice();
-        let result = winConditions();
+        let result = winConditions();        
     if (result.includes('win')) {
         UserScore++;}
     else if (result.includes('lost')) {
         ComputerScore++;
-    }
+    }   
+        console.log(`Round ${i}: Computer chose ${computer_choice} it is a ${result}`)
+    }         
 
-    console.log(`Round ${i}: Computer chose ${computer_choice} it is a ${result}`)   
-  }
     if (ComputerScore > UserScore) {
         return 'Computer WON'
     }
@@ -23,8 +23,8 @@ function playRound() {
         return 'You WON'
     }
     else if (UserScore === ComputerScore) {
-        return 'it is a rare draw'
-    } 
+        return 'It is a draw, play again!'
+    }
 }
 
 function getUserChoice() {
