@@ -9,7 +9,7 @@ function playRound() {
 
     if (result.includes('win')) {
         UserScore++;
-    } else if (result.includes('lost')) {
+    } else if (result.includes('defeat')) {
         ComputerScore++;
     } 
 
