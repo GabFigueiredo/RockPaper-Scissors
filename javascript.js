@@ -1,37 +1,51 @@
-let user_choice = 0
-let computer_choice = 0
+let computer_choice = ''
 let ComputerScore = 0;
 let UserScore = 0;
+let i = 1;
 
 function playRound() {
-    for (let i = 1; i <= 5; i++) {
-        user_choice = getUserChoice();
-        computer_choice = getComputerChoice();
-        let result = winConditions();        
+    computer_choice = getComputerChoice();
+    let result = winConditions();
+
     if (result.includes('win')) {
-        UserScore++;}
-    else if (result.includes('lost')) {
+        UserScore++;
+    } else if (result.includes('lost')) {
         ComputerScore++;
-    }   
-        console.log(`Round ${i}: Computer chose ${computer_choice} it is a ${result}`)
-    }         
+    } 
 
-    if (ComputerScore > UserScore) {
-        return 'Computer WON'
+    console.log(`Round ${i}: Computer chose ${computer_choice} it is a ${result}`);
+    
+    const homeTeam = document.getElementById('homeTeam');
+        homeTeam.innerHTML = UserScore;
+
+    const awayTeam = document.getElementById('awayTeam');
+       awayTeam.innerHTML = ComputerScore;
+    
+    const message = document.getElementById('message')
+        message.innerHTML = `Round ${i}: Computer chose ${computer_choice} it is a ${result}`;
+        i++
+
+    if (ComputerScore === 3) {
+        console.log('Computer WON');
+        message.innerHTML = 'Computer WON';
+        ComputerScore = 0;
+        UserScore = 0;
+        i = 1
+        
     }
-    else if (UserScore > ComputerScore) {
-        return 'You WON'
-    }
-    else if (UserScore === ComputerScore) {
-        return 'It is a draw, play again!'
+    else if (UserScore === 3) {
+        console.log('You WON');
+        message.innerHTML = 'User WON'
+        UserScore = 0;
+        ComputerScore = 0;
+        i = 1
     }
 }
-
-function getUserChoice() {
-    user_choice = prompt('Choose Rock, Paper or Scissor');
-    user_choice = user_choice.toLowerCase();    
-    return user_choice;
-}
+// function getUserChoice() {
+//     user_choice = prompt('Choose Rock, Paper or Scissor');
+//     user_choice = user_choice.toLowerCase();    
+//     return user_choice;
+// }
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
@@ -67,3 +81,7 @@ function winConditions() {
         return 'draw';    
     }
 }
+
+
+
+const teste = 'kkkk foi peggy'
