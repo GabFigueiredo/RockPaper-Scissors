@@ -73,7 +73,7 @@ function winConditions() {
         case 'rockpaper':
         case 'scissorsrock':
         case 'paperscissors':
-        return 'lost'
+        return 'defeat'
         break;
         case 'rockrock':
         case 'paperpaper':
