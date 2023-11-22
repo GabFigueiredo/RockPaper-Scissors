@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">        
+        <a div class="Header">Rock, Paper, Scissor GAME!</a>        
+        <a class="subheader">You against Computer!</a>
+        <div class="numberContainer">
+            <a class="number" id="homeTeam">0</a>
+            <a class="number" id="awayTeam">0</a>
+        </div>
+        <div id="message"></div>    
+        <div class="jankencontainer">
+            <button class="hoverJanken" id="janken">Janken!</button>
+        </div>
+        <a id="chooseOne">Choose one</a>    
+        <div class="allbuttons">
+            <button class="buttons" id="rock">Rock</button>
+            <button class="buttons" id="paper">Paper</button>
+            <button class="buttons" id="scissors">Scissors</button>
+        </div>     
+    </div>
+    <script defer>
+        const btn1 = document.getElementById('rock');
+        const btn2 = document.getElementById('paper');    
+        const btn3 = document.getElementById('scissors');
+
+        let user_choice;
+
+        btn1.addEventListener('click', function() {
+            user_choice = 'rock';
+            console.log(user_choice);
+        });
+
+        btn2.addEventListener('click', function() {
+            user_choice = 'paper';
+            console.log(user_choice);
+        });
+
+        btn3.addEventListener('click', function() {
+            user_choice = 'scissors';
+            console.log(user_choice);
+        });
+
+        let Janken = document.getElementById('janken');
+        Janken.addEventListener('click', function(){
+            playRound();
+        })
+
+        const pressedBtns = document.querySelectorAll('.buttons')
+        
+        pressedBtns.forEach(btnEl => {
+            btnEl.addEventListener('click', () => {
+                document.querySelector('.special')?.classList.remove('special');
+                btnEl.classList.add('special');
+            })
+        })
+        
+    </script>
 </body>
 </html>
