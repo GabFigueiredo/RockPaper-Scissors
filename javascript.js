@@ -3,6 +3,7 @@ let ComputerScore = 0;
 let UserScore = 0;
 let i = 1;
 
+// Função que inicia o round
 function playRound() {
     computer_choice = getComputerChoice();
     let result = winConditions();
@@ -41,12 +42,8 @@ function playRound() {
         i = 1
     }
 }
-// function getUserChoice() {
-//     user_choice = prompt('Choose Rock, Paper or Scissor');
-//     user_choice = user_choice.toLowerCase();    
-//     return user_choice;
-// }
 
+// Função da escolha aleatória
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     let res;
@@ -63,6 +60,7 @@ function getComputerChoice() {
     return res 
 }
 
+// Função que determina o resultado
 function winConditions() {
     switch (user_choice+computer_choice) {
         case 'paperrock':
